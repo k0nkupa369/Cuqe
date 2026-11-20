@@ -1,0 +1,3 @@
+*.gguf
+SHA256SUMS
+__pycache__/
