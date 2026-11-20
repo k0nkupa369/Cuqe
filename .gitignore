@@ -1,3 +1,5 @@
 *.gguf
 SHA256SUMS
 __pycache__/
+
+/target/
