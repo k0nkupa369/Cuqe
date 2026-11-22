@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.3-beta
+
+- Added a private Tailscale MCP path for the startup disk read.
+- Added a Mac companion for an authorized hosted relay, with relay-scoped Keychain storage, one-time pairing, and revocation.
+- Added the Cuqe skill for agent tool selection.
+- Updated the local Python MCP SDK to 1.30.0.
+- Included the archived v21 training and evaluation documentation already published on GitHub. The verifier weights have the same version.
+
 ## v0.2-beta
 
 - Added an Apple silicon CLI for startup-disk space and the installed Node.js version.

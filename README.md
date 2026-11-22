@@ -49,19 +49,19 @@ Run `python3 eval/report.py` to regenerate this table from the [archived observa
 
 ## Install on an Apple silicon Mac
 
-Download `cuqe-v0.2-beta-macos-arm64.tar.gz` and `SHA256SUMS` from the [v0.2 beta release](https://github.com/k0nkupa369/Cuqe/releases/tag/v0.2-beta). In the download directory, verify and extract the archive.
+Download `cuqe-v0.3-beta-macos-arm64.tar.gz` and `SHA256SUMS` from the [v0.3 beta release](https://github.com/k0nkupa369/Cuqe/releases/tag/v0.3-beta). In the download directory, verify and extract the archive.
 
 ```sh
 shasum -a 256 -c SHA256SUMS
-tar -xzf cuqe-v0.2-beta-macos-arm64.tar.gz
-cd cuqe-v0.2-beta-macos-arm64
+tar -xzf cuqe-v0.3-beta-macos-arm64.tar.gz
+cd cuqe-v0.3-beta-macos-arm64
 ./cuqe --version
 ```
 
 The binary is a beta build. If macOS blocks it, build from the tagged source with Rust 1.92 or later and the Xcode command-line tools.
 
 ```sh
-git clone --branch v0.2-beta https://github.com/k0nkupa369/Cuqe.git
+git clone --branch v0.3-beta https://github.com/k0nkupa369/Cuqe.git
 cd Cuqe
 cargo build --release --locked
 ./target/release/cuqe --version
@@ -84,7 +84,7 @@ Activate your preferred Node.js installation in the terminal before onboarding. 
 Install [uv](https://docs.astral.sh/uv/) and open a terminal in the extracted package or source checkout. Register the local MCP server in Codex.
 
 ```sh
-codex mcp add cuqe -- "$(command -v uv)" run --python 3.12 --with mcp==1.29.0 "$PWD/scripts/cuqe_mcp.py"
+codex mcp add cuqe -- "$(command -v uv)" run --python 3.12 --with mcp==1.30.0 "$PWD/scripts/cuqe_mcp.py"
 ```
 
 In a new Codex session, ask “Use Cuqe to check free space on my startup disk” or “Use Cuqe to check my installed Node.js version.” The `cuqe.read_machine` tool accepts only `disk_space` and `node_version`. It runs the corresponding read on this Mac. If you set a separate profile, give the MCP server the same `CUQE_CONFIG_DIR`.
@@ -102,6 +102,44 @@ ollama create cuqe-verifier:v0.1-beta -f Modelfile
 ```
 
 Set `CUQE_OLLAMA_PORT` to use a different local port. The optional MCP tools `cuqe.disk_space` and `cuqe.node_version` take the original request and use this path. See the [changelog](CHANGELOG.md) for release history.
+
+## Agent skill
+
+The [Cuqe skill](.agents/skills/cuqe/SKILL.md) tells agents which tools to use for supported Mac reads. Codex discovers it from this checkout.
+
+## Try the private Tailscale MCP
+
+Use this pilot from a source checkout with a release binary built locally. It serves one read-only tool, `read_startup_disk`, to a client that runs on your tailnet.
+
+On the Mac, use a dedicated Serve port allowed by your tailnet policy for the people who should use Cuqe. Use Tailscale Serve for HTTPS. In the first terminal, start the adapter with the exact authority of the Serve URL and the login of the person who can read this Mac.
+
+```sh
+uv run --python 3.12 --with mcp==1.30.0 scripts/cuqe_tailnet.py \
+  --serve-host my-mac.my-tailnet.ts.net:8443 \
+  --allow-login you@example.com
+```
+
+In a second terminal on the Mac, start Serve in the foreground.
+
+```sh
+tailscale serve --https=8443 http://127.0.0.1:9476
+```
+
+On another device on the tailnet, register the MCP URL with your local Codex client.
+
+```sh
+codex mcp add cuqe-tailnet --url https://my-mac.my-tailnet.ts.net:8443/mcp
+```
+
+Ask Codex to read startup disk space on the connected Mac. Repeat `--allow-login` for another approved Tailscale user. The adapter requires Serve's user identity, so connections from tagged devices without user identity are denied. The loopback listener trusts processes on the Mac. To revoke a user, remove their `--allow-login` entry and restart the adapter. Remove any tailnet rules that also allow the revoked access. If the Mac goes offline or you stop the adapter or Serve, the client receives a connection error and cannot read fresh disk data. [Tailscale Serve](https://tailscale.com/docs/features/tailscale-serve)
+
+From a second device, you can run `python3 scripts/probe_cuqe_tailnet.py <mcp-url> --disk-result '<local-cli-output>'` to compare with the Mac’s CLI. Repeat with `--denied` after revoking that login.
+
+## Hosted Mac companion
+
+Use `scripts/cuqe_hosted.py` with Python 3.9 or newer and a compatible relay supplied by your operator. Pass the relay's HTTPS origin and `pair`, `status`, or `run`. For an extracted release, pass `--bin ./cuqe`. Run `python3 scripts/cuqe_hosted.py --help` for options. Complete pairing with your operator's signed-in page, then keep the agent running while you use Cuqe. If macOS requests Keychain access, choose **Allow** for that request.
+
+The hosted ChatGPT plugin is in private pilot. The GitHub release provides the Mac software and the agent skill.
 
 ## Running the checks
 
