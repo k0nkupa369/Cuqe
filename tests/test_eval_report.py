@@ -16,3 +16,4 @@ def test_report_reproduces_archived_v21_results():
     ]
     root = Path(__file__).resolve().parents[1]
     assert table in (root / "MODEL_CARD.md").read_text(encoding="utf-8")
+    assert table in (root / "README.md").read_text(encoding="utf-8")
