@@ -97,6 +97,18 @@ fn command_output(program: &str, args: &[&str]) -> Result<String> {
 fn read_disk() -> Result<()> {
     let mount = "/System/Volumes/Data";
     let report = command_output("/bin/df", &["-k", mount])?;
+    let (total, available) = parse_disk_report(&report)?;
+    let kib_per_gib = 1_048_576.0;
+    let percent_free = available as f64 / total as f64 * 100.0;
+    println!(
+        "{percent_free:.1}% free ({:.1} GiB available of {:.1} GiB total) on {mount}",
+        available as f64 / kib_per_gib,
+        total as f64 / kib_per_gib
+    );
+    Ok(())
+}
+
+fn parse_disk_report(report: &str) -> Result<(u64, u64)> {
     let mut fields = report
         .lines()
         .nth(1)
@@ -112,14 +124,7 @@ fn read_disk() -> Result<()> {
         .nth(1)
         .ok_or("Missing available disk space")?
         .parse::<u64>()?;
-    let kib_per_gib = 1_048_576.0;
-    let percent_free = available as f64 / total as f64 * 100.0;
-    println!(
-        "{percent_free:.1}% free ({:.1} GiB available of {:.1} GiB total) on {mount}",
-        available as f64 / kib_per_gib,
-        total as f64 / kib_per_gib
-    );
-    Ok(())
+    Ok((total, available))
 }
 
 fn run() -> Result<()> {
@@ -165,6 +170,35 @@ fn main() -> ExitCode {
         Err(error) => {
             eprintln!("cuqe: {error}");
             ExitCode::FAILURE
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn parses_macos_disk_report() -> Result<()> {
+        let report = "Filesystem 1024-blocks Used Available Capacity iused ifree %iused Mounted on\n\
+                      /dev/disk3s5 1048576 786432 262144 75% 1 2 33% /System/Volumes/Data";
+        assert_eq!(parse_disk_report(report)?, (1_048_576, 262_144));
+        assert_eq!(
+            parse_disk_report("header\n/dev/disk3s5 100 100 0")?,
+            (100, 0)
+        );
+        Ok(())
+    }
+
+    #[test]
+    fn rejects_invalid_disk_report() {
+        for report in [
+            "header",
+            "header\n/dev/disk3s5 100 80",
+            "header\n/dev/disk3s5 0 80 20",
+            "header\n/dev/disk3s5 100 80 -20",
+        ] {
+            assert!(parse_disk_report(report).is_err(), "{report}");
         }
     }
 }

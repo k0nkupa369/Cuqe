@@ -3,11 +3,12 @@
 import json
 import subprocess
 from pathlib import Path
-from typing import Literal, TypedDict
+from typing import Literal
 
 from mcp.server.fastmcp import FastMCP
 from mcp.server.fastmcp.exceptions import ToolError
 from mcp.types import ToolAnnotations
+from typing_extensions import TypedDict
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -81,6 +82,8 @@ def read_machine(action: Literal["disk_space", "node_version"]) -> str | NodeVer
     clarification if the target or intent is unclear. For online releases,
     package-manager versions, or instructions, choose a different tool.
     """
+    if action not in ("disk_space", "node_version"):
+        raise ToolError("Read action must be disk_space or node_version")
     result = run_cli("--read", action)
     return json.loads(result) if action == "node_version" else result
 

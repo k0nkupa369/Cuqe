@@ -1,0 +1,686 @@
+{
+  "archives_sha256": {
+    "heldout.json": "edcedb652e9dd6178ea5f6d7c5fd529096c25e652b6bbb2b3dde43223f7e4692"
+  },
+  "chip": "Apple M4",
+  "ollama": "0.40.15",
+  "model_manifest_sha256": {
+    "qwen3:0.6b": "7df6b6e09427a769808717c0a93cadc4ae99ed4eb8bf5ca557c90846becea435",
+    "cue-catalog:step-21432": "e33a37048b7e75867bee674cd9631aeea8e09a0c6fc1631153657738393f0ada"
+  },
+  "catalog_sha256": "60f7e46076fb3f1936ec8e82838cc73e23c27229113852b52f506c65f5e8e788",
+  "cases": [
+    {
+      "pair": "v21-heldout-01",
+      "present": true,
+      "expected": "move_selected_row_above",
+      "ranking": "move_selected_row_above",
+      "ranked_margin": 5.725009916583076
+    },
+    {
+      "pair": "v21-heldout-01",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_selected_row_below",
+      "ranked_margin": -1.031192809343338
+    },
+    {
+      "pair": "v21-heldout-02",
+      "present": true,
+      "expected": "move_selected_row_above",
+      "ranking": "move_selected_row_above",
+      "ranked_margin": 4.2638166304677725
+    },
+    {
+      "pair": "v21-heldout-02",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_selected_row_below",
+      "ranked_margin": -0.6890143752098083
+    },
+    {
+      "pair": "v21-heldout-03",
+      "present": true,
+      "expected": "move_selected_row_above",
+      "ranking": "move_selected_row_above",
+      "ranked_margin": 3.5624064411967993
+    },
+    {
+      "pair": "v21-heldout-03",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_selected_row_below",
+      "ranked_margin": 1.4275513142347336
+    },
+    {
+      "pair": "v21-heldout-04",
+      "present": true,
+      "expected": "move_selected_row_below",
+      "ranking": "move_selected_row_below",
+      "ranked_margin": 4.5167540134862065
+    },
+    {
+      "pair": "v21-heldout-04",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_selected_row_above",
+      "ranked_margin": 0.28326427936553955
+    },
+    {
+      "pair": "v21-heldout-05",
+      "present": true,
+      "expected": "move_selected_row_below",
+      "ranking": "move_selected_row_below",
+      "ranked_margin": 2.3691443726420403
+    },
+    {
+      "pair": "v21-heldout-05",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_selected_row_above",
+      "ranked_margin": -0.8884391784667969
+    },
+    {
+      "pair": "v21-heldout-06",
+      "present": true,
+      "expected": "move_selected_row_below",
+      "ranking": "move_selected_row_below",
+      "ranked_margin": 2.377441294491291
+    },
+    {
+      "pair": "v21-heldout-06",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_selected_row_above",
+      "ranked_margin": 0.6491107940673828
+    },
+    {
+      "pair": "v21-heldout-07",
+      "present": true,
+      "expected": "export_preview_low_quality",
+      "ranking": "export_preview_low_quality",
+      "ranked_margin": 5.014873527456075
+    },
+    {
+      "pair": "v21-heldout-07",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": -1.2682533264160156
+    },
+    {
+      "pair": "v21-heldout-08",
+      "present": true,
+      "expected": "export_preview_low_quality",
+      "ranking": "export_preview_low_quality",
+      "ranked_margin": 6.079732914688066
+    },
+    {
+      "pair": "v21-heldout-08",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": -1.9758490175008774
+    },
+    {
+      "pair": "v21-heldout-09",
+      "present": true,
+      "expected": "export_preview_low_quality",
+      "ranking": "export_preview_low_quality",
+      "ranked_margin": 0.039478302001953125
+    },
+    {
+      "pair": "v21-heldout-09",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": -1.546138659119606
+    },
+    {
+      "pair": "v21-heldout-10",
+      "present": true,
+      "expected": "export_final_high_quality",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": 8.20490446704207
+    },
+    {
+      "pair": "v21-heldout-10",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "replace_all_document_matches",
+      "ranked_margin": -0.20115280151367188
+    },
+    {
+      "pair": "v21-heldout-11",
+      "present": true,
+      "expected": "export_final_high_quality",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": 7.825531213602517
+    },
+    {
+      "pair": "v21-heldout-11",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "export_even_document_pages",
+      "ranked_margin": 1.9039078503847122
+    },
+    {
+      "pair": "v21-heldout-12",
+      "present": true,
+      "expected": "export_final_high_quality",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": 2.9828414544463158
+    },
+    {
+      "pair": "v21-heldout-12",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "export_even_document_pages",
+      "ranked_margin": 1.7551614195108414
+    },
+    {
+      "pair": "v21-heldout-13",
+      "present": true,
+      "expected": "remove_recording_background",
+      "ranking": "remove_recording_background",
+      "ranked_margin": 7.882480474305339
+    },
+    {
+      "pair": "v21-heldout-13",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "normalize_recording_loudness",
+      "ranked_margin": 2.052467465400696
+    },
+    {
+      "pair": "v21-heldout-14",
+      "present": true,
+      "expected": "remove_recording_background",
+      "ranking": "remove_recording_background",
+      "ranked_margin": 6.206133149098605
+    },
+    {
+      "pair": "v21-heldout-14",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "normalize_recording_loudness",
+      "ranked_margin": 2.6171302497386932
+    },
+    {
+      "pair": "v21-heldout-15",
+      "present": true,
+      "expected": "remove_recording_background",
+      "ranking": "remove_recording_background",
+      "ranked_margin": 6.985996392206289
+    },
+    {
+      "pair": "v21-heldout-15",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "normalize_recording_loudness",
+      "ranked_margin": 2.3933181539177895
+    },
+    {
+      "pair": "v21-heldout-16",
+      "present": true,
+      "expected": "normalize_recording_loudness",
+      "ranking": "normalize_recording_loudness",
+      "ranked_margin": 3.1305293291807175
+    },
+    {
+      "pair": "v21-heldout-16",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_next_calendar_month",
+      "ranked_margin": -3.7908383049070835
+    },
+    {
+      "pair": "v21-heldout-17",
+      "present": true,
+      "expected": "normalize_recording_loudness",
+      "ranking": "normalize_recording_loudness",
+      "ranked_margin": 6.071682172361761
+    },
+    {
+      "pair": "v21-heldout-17",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "remove_recording_background",
+      "ranked_margin": 0.33835792541503906
+    },
+    {
+      "pair": "v21-heldout-18",
+      "present": true,
+      "expected": "normalize_recording_loudness",
+      "ranking": "normalize_recording_loudness",
+      "ranked_margin": 4.990379276685417
+    },
+    {
+      "pair": "v21-heldout-18",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": -1.3339252918958664
+    },
+    {
+      "pair": "v21-heldout-19",
+      "present": true,
+      "expected": "show_next_calendar_month",
+      "ranking": "show_next_calendar_month",
+      "ranked_margin": 2.5018462613224983
+    },
+    {
+      "pair": "v21-heldout-19",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_prior_calendar_month",
+      "ranked_margin": -0.20462805032730103
+    },
+    {
+      "pair": "v21-heldout-20",
+      "present": true,
+      "expected": "show_next_calendar_month",
+      "ranking": "show_next_calendar_month",
+      "ranked_margin": 1.7464542239904404
+    },
+    {
+      "pair": "v21-heldout-20",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_prior_calendar_month",
+      "ranked_margin": -1.934751495718956
+    },
+    {
+      "pair": "v21-heldout-21",
+      "present": true,
+      "expected": "show_next_calendar_month",
+      "ranking": "show_next_calendar_month",
+      "ranked_margin": 2.625635154545307
+    },
+    {
+      "pair": "v21-heldout-21",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_prior_calendar_month",
+      "ranked_margin": 1.1935901939868927
+    },
+    {
+      "pair": "v21-heldout-22",
+      "present": true,
+      "expected": "show_prior_calendar_month",
+      "ranking": "show_prior_calendar_month",
+      "ranked_margin": 3.7494392842054367
+    },
+    {
+      "pair": "v21-heldout-22",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_next_calendar_month",
+      "ranked_margin": 0.5474529266357422
+    },
+    {
+      "pair": "v21-heldout-23",
+      "present": true,
+      "expected": "show_prior_calendar_month",
+      "ranking": "show_prior_calendar_month",
+      "ranked_margin": 1.6280194073915482
+    },
+    {
+      "pair": "v21-heldout-23",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_next_calendar_month",
+      "ranked_margin": -1.1903038024902344
+    },
+    {
+      "pair": "v21-heldout-24",
+      "present": true,
+      "expected": "show_prior_calendar_month",
+      "ranking": "show_prior_calendar_month",
+      "ranked_margin": 1.3214226216077805
+    },
+    {
+      "pair": "v21-heldout-24",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_next_calendar_month",
+      "ranked_margin": -0.1486968994140625
+    },
+    {
+      "pair": "v21-heldout-25",
+      "present": true,
+      "expected": "replace_current_text_match",
+      "ranking": "replace_current_text_match",
+      "ranked_margin": 4.01543053984642
+    },
+    {
+      "pair": "v21-heldout-25",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "replace_all_document_matches",
+      "ranked_margin": -1.34767347574234
+    },
+    {
+      "pair": "v21-heldout-26",
+      "present": true,
+      "expected": "replace_current_text_match",
+      "ranking": "replace_current_text_match",
+      "ranked_margin": 5.401922225486487
+    },
+    {
+      "pair": "v21-heldout-26",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "replace_all_document_matches",
+      "ranked_margin": 5.964769112179056
+    },
+    {
+      "pair": "v21-heldout-27",
+      "present": true,
+      "expected": "replace_current_text_match",
+      "ranking": "replace_current_text_match",
+      "ranked_margin": 2.189460702240467
+    },
+    {
+      "pair": "v21-heldout-27",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "replace_all_document_matches",
+      "ranked_margin": 0.6023923456668854
+    },
+    {
+      "pair": "v21-heldout-28",
+      "present": true,
+      "expected": "replace_all_document_matches",
+      "ranking": "replace_all_document_matches",
+      "ranked_margin": 6.578788639628328
+    },
+    {
+      "pair": "v21-heldout-28",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "replace_current_text_match",
+      "ranked_margin": -0.2046833634376526
+    },
+    {
+      "pair": "v21-heldout-29",
+      "present": true,
+      "expected": "replace_all_document_matches",
+      "ranking": "replace_all_document_matches",
+      "ranked_margin": 3.3688163310289383
+    },
+    {
+      "pair": "v21-heldout-29",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "save_current_draft",
+      "ranked_margin": -0.8623123168945312
+    },
+    {
+      "pair": "v21-heldout-30",
+      "present": true,
+      "expected": "replace_all_document_matches",
+      "ranking": "replace_all_document_matches",
+      "ranked_margin": 2.301114983856678
+    },
+    {
+      "pair": "v21-heldout-30",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": -0.5267810523509979
+    },
+    {
+      "pair": "v21-heldout-31",
+      "present": true,
+      "expected": "enable_current_layer_mask",
+      "ranking": "enable_current_layer_mask",
+      "ranked_margin": 3.473813919350505
+    },
+    {
+      "pair": "v21-heldout-31",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "disable_current_layer_mask",
+      "ranked_margin": 0.18207550048828125
+    },
+    {
+      "pair": "v21-heldout-32",
+      "present": true,
+      "expected": "enable_current_layer_mask",
+      "ranking": "enable_current_layer_mask",
+      "ranked_margin": 2.8738555908203125
+    },
+    {
+      "pair": "v21-heldout-32",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "disable_current_layer_mask",
+      "ranked_margin": -2.0813541263341904
+    },
+    {
+      "pair": "v21-heldout-33",
+      "present": true,
+      "expected": "enable_current_layer_mask",
+      "ranking": "restore_one_backup_item",
+      "ranked_margin": 0.875724732875824
+    },
+    {
+      "pair": "v21-heldout-33",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "restore_one_backup_item",
+      "ranked_margin": 0.875724732875824
+    },
+    {
+      "pair": "v21-heldout-34",
+      "present": true,
+      "expected": "disable_current_layer_mask",
+      "ranking": "disable_current_layer_mask",
+      "ranked_margin": 3.970550501719117
+    },
+    {
+      "pair": "v21-heldout-34",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "enable_current_layer_mask",
+      "ranked_margin": -1.9737738966941833
+    },
+    {
+      "pair": "v21-heldout-35",
+      "present": true,
+      "expected": "disable_current_layer_mask",
+      "ranking": "disable_current_layer_mask",
+      "ranked_margin": 2.9219778776168823
+    },
+    {
+      "pair": "v21-heldout-35",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "enable_current_layer_mask",
+      "ranked_margin": -2.6467456966638565
+    },
+    {
+      "pair": "v21-heldout-36",
+      "present": true,
+      "expected": "disable_current_layer_mask",
+      "ranking": "disable_current_layer_mask",
+      "ranked_margin": 6.296636619372293
+    },
+    {
+      "pair": "v21-heldout-36",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "enable_current_layer_mask",
+      "ranked_margin": 1.0023766458034515
+    },
+    {
+      "pair": "v21-heldout-37",
+      "present": true,
+      "expected": "show_file_thumbnail_strip",
+      "ranking": "show_file_thumbnail_strip",
+      "ranked_margin": 1.3578184992074966
+    },
+    {
+      "pair": "v21-heldout-37",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": -2.9818343482911587
+    },
+    {
+      "pair": "v21-heldout-38",
+      "present": true,
+      "expected": "show_file_thumbnail_strip",
+      "ranking": "show_file_thumbnail_strip",
+      "ranked_margin": 3.8255292288959026
+    },
+    {
+      "pair": "v21-heldout-38",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_file_outline_tree",
+      "ranked_margin": -0.8182812035083771
+    },
+    {
+      "pair": "v21-heldout-39",
+      "present": true,
+      "expected": "show_file_thumbnail_strip",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": -2.667408064007759
+    },
+    {
+      "pair": "v21-heldout-39",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": -2.667408064007759
+    },
+    {
+      "pair": "v21-heldout-40",
+      "present": true,
+      "expected": "show_file_outline_tree",
+      "ranking": "show_file_outline_tree",
+      "ranked_margin": 6.913124028593302
+    },
+    {
+      "pair": "v21-heldout-40",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "restore_one_backup_item",
+      "ranked_margin": -1.4369486719369888
+    },
+    {
+      "pair": "v21-heldout-41",
+      "present": true,
+      "expected": "show_file_outline_tree",
+      "ranking": "show_file_outline_tree",
+      "ranked_margin": 4.683986640535295
+    },
+    {
+      "pair": "v21-heldout-41",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "jump_to_last_workbook_sheet",
+      "ranked_margin": 1.496150940656662
+    },
+    {
+      "pair": "v21-heldout-42",
+      "present": true,
+      "expected": "show_file_outline_tree",
+      "ranking": "show_file_outline_tree",
+      "ranked_margin": 4.966880767606199
+    },
+    {
+      "pair": "v21-heldout-42",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": -0.9400253593921661
+    },
+    {
+      "pair": "v21-heldout-43",
+      "present": true,
+      "expected": "restore_one_backup_item",
+      "ranking": "restore_one_backup_item",
+      "ranked_margin": 6.06995566864498
+    },
+    {
+      "pair": "v21-heldout-43",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "restore_all_backup_items",
+      "ranked_margin": 4.781732430681586
+    },
+    {
+      "pair": "v21-heldout-44",
+      "present": true,
+      "expected": "restore_one_backup_item",
+      "ranking": "restore_one_backup_item",
+      "ranked_margin": 2.936613157391548
+    },
+    {
+      "pair": "v21-heldout-44",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "export_final_high_quality",
+      "ranked_margin": 0.2965450882911682
+    },
+    {
+      "pair": "v21-heldout-45",
+      "present": true,
+      "expected": "restore_one_backup_item",
+      "ranking": "restore_one_backup_item",
+      "ranked_margin": 5.734905461547896
+    },
+    {
+      "pair": "v21-heldout-45",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "restore_all_backup_items",
+      "ranked_margin": 1.5746516585350037
+    },
+    {
+      "pair": "v21-heldout-46",
+      "present": true,
+      "expected": "restore_all_backup_items",
+      "ranking": "restore_all_backup_items",
+      "ranked_margin": 5.9528367824386805
+    },
+    {
+      "pair": "v21-heldout-46",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "restore_one_backup_item",
+      "ranked_margin": -0.3821983337402344
+    },
+    {
+      "pair": "v21-heldout-47",
+      "present": true,
+      "expected": "restore_all_backup_items",
+      "ranking": "restore_all_backup_items",
+      "ranked_margin": 2.132562570273876
+    },
+    {
+      "pair": "v21-heldout-47",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "restore_one_backup_item",
+      "ranked_margin": -1.5615996271371841
+    },
+    {
+      "pair": "v21-heldout-48",
+      "present": true,
+      "expected": "restore_all_backup_items",
+      "ranking": "restore_all_backup_items",
+      "ranked_margin": 3.734726071357727
+    },
+    {
+      "pair": "v21-heldout-48",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "restore_one_backup_item",
+      "ranked_margin": -1.4193802326917648
+    }
+  ]
+}

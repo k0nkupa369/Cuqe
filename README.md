@@ -1,6 +1,51 @@
 # Cuqe
 
-Read startup-disk space and the installed Node.js version on an Apple silicon Mac. Cuqe supports a terminal and local Codex through MCP. The named reads work without a model service.
+When an agent asks how much space is left on your Mac or which Node.js version is installed, Cuqe answers with a fixed read-only action. If the agent passes the request in plain English, a small local model checks that the proposed read matches before Cuqe runs it.
+
+```mermaid
+flowchart LR
+    Agent -->|Explicit read ID| Read["Read startup disk space or Node.js version"]
+    Agent -->|Free-form request| Route["Check scope and select the proposed read"]
+    Route -->|Supported proposal| Check["Check the proposal with v21"]
+    Route -->|Outside scope| Decline["Decline without running a read"]
+    Check -->|Keep| Read
+    Check -->|Decline| Decline
+```
+
+```console
+$ ./cuqe --read disk_space
+31.6% free (292.8 GiB available of 926.4 GiB total) on /System/Volumes/Data
+$ ./cuqe --read node_version
+{"version":"v22.23.1","executable":"~/…/bin/node","resolution_scope":"saved_profile","observed_at_unix_ms":1795331130161}
+$ ./cuqe --verified "How much space is left on this Mac?"
+cuqe: Cuqe verifier declined the disk space request
+```
+
+These are results from a Mac with Node.js already onboarded and both local models installed. The Node.js example abbreviates the executable path.
+
+## How it decides
+
+An explicit read ID goes straight to the built-in read. In free-form mode, stock Qwen3 0.6B checks which read the user asked for. The Qwen3 0.6B v21 verifier then scores that proposal. Cuqe subtracts the decline token's log probability from the accept token's log probability. It keeps the proposal only if both scores are present and the finite margin is at least `2.2131806164979935`. The [calibration run](eval/README.md) selected the highest cutoff that retained at least 90% of correct stock proposals.
+
+## Development results
+
+| v21 development measure | Result |
+| --- | ---: |
+| Correct action offered and kept | 39/48 |
+| Correct action absent and declined | 44/48 |
+| Both presentations correct | 35/48 |
+| Correct stock proposals kept in calibration | 38/42 |
+| Archived wrong proposals declined | 22/25 |
+| Warm p95, ranking and verification | 365 ms over 96 presentations |
+| Peak Ollama-reported resident size, both models | 1.08 GiB |
+
+Run `python3 eval/report.py` to regenerate this table from the [archived observations](eval/README.md). These were simulated catalogs on an Apple M4, with actions beyond the two shipped reads. See the [model card](MODEL_CARD.md) for details.
+
+## Known misses and limits
+
+- Valid requests can be declined, as in the disk-space example above. When the caller already knows the exact read, it can pass its ID.
+- In the simulated release smoke check, the verifier accepted minimizing a window for a request to close it. The [model card](MODEL_CARD.md) records the case.
+- Cuqe runs on Apple silicon macOS and supports two reads. The beta binary is ad hoc signed and carries no Apple Developer ID signature.
 
 ## Install on an Apple silicon Mac
 
@@ -32,7 +77,7 @@ Run these in the extracted directory. For a source build, use `./target/release/
 ./cuqe --read node_version
 ```
 
-Activate your preferred Node.js installation in the terminal before onboarding. Cuqe resolves the first executable `node` on your shell's `PATH`, probes its version, and saves the resolved path in `~/Library/Application Support/Cuqe/node.json`. Subsequent reads use that executable and report its version, path, scope, and observation time. Refresh onboarding if a package-manager upgrade removes the saved binary. Cuqe uses its own process's `PATH` before onboarding. Set `CUQE_CONFIG_DIR` to use a separate profile.
+Activate your preferred Node.js installation in the terminal before onboarding. Cuqe resolves the first executable `node` on your shell's `PATH`, probes its version, and saves the resolved path in `~/Library/Application Support/Cuqe/node.json`. Subsequent reads use that executable and report its version, path, scope, and observation time. Refresh onboarding if a package-manager upgrade removes the saved binary. Before onboarding, Cuqe uses its own process's `PATH`. Set `CUQE_CONFIG_DIR` to use a separate profile.
 
 ## Use Cuqe from Codex
 
@@ -56,4 +101,18 @@ ollama create cuqe-verifier:v0.1-beta -f Modelfile
 ./cuqe --verified-node "What is the installed Node.js version?"
 ```
 
-Set `CUQE_OLLAMA_PORT` to use a different local port. The optional MCP tools `cuqe.disk_space` and `cuqe.node_version` take the original request and use this path. The verifier can decline valid wording or accept an incorrect proposal. Use explicit action IDs when the caller already knows which read to perform. The [model card](MODEL_CARD.md) describes the fixed v21 checkpoint. See [the changelog](CHANGELOG.md) for release history.
+Set `CUQE_OLLAMA_PORT` to use a different local port. The optional MCP tools `cuqe.disk_space` and `cuqe.node_version` take the original request and use this path. See the [changelog](CHANGELOG.md) for release history.
+
+## Running the checks
+
+Run the Rust checks on an Apple silicon Mac. Install the Python test dependencies in a virtual environment with Python 3.10 or 3.12.
+
+```sh
+cargo fmt --check
+cargo clippy --locked --all-targets -- -D warnings
+cargo test --locked
+python -m pip install --require-hashes -r requirements-dev.txt
+python -m pytest -q
+```
+
+The checks use test fixtures for model responses and need no GGUF or Ollama service.

@@ -1,0 +1,43 @@
+{
+  "adapter_path": "target/fit-joint-v21/0.6b/adapters",
+  "batch_size": 4,
+  "clear_cache_threshold": 0,
+  "config": null,
+  "data": "eval/joint-v21/fit-inputs.json",
+  "fine_tune_type": "lora",
+  "grad_accumulation_steps": 1,
+  "grad_checkpoint": false,
+  "iters": 432,
+  "learning_rate": 4e-05,
+  "lora_parameters": {
+    "rank": 8,
+    "dropout": 0.0,
+    "scale": 20.0
+  },
+  "lr_schedule": null,
+  "mask_prompt": true,
+  "max_seq_length": 128,
+  "model": "target/fit-joint-v21/0.6b/base",
+  "num_layers": 8,
+  "optimizer": "adam",
+  "optimizer_config": {
+    "adam": {},
+    "adamw": {},
+    "muon": {},
+    "sgd": {},
+    "adafactor": {}
+  },
+  "project_name": null,
+  "report_to": null,
+  "resume_adapter_file": null,
+  "save_every": 216,
+  "seed": 712,
+  "steps_per_eval": 72,
+  "steps_per_report": 12,
+  "test": false,
+  "test_batches": 500,
+  "train": true,
+  "trust_remote_code": false,
+  "val_batches": 0,
+  "objective": "action_value_token_with_paired_margin"
+}

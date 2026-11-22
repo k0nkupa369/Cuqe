@@ -146,13 +146,20 @@ fn decision_offset(content: &str) -> Option<usize> {
 }
 
 pub(super) fn verify_candidate(request: &str, candidate: &str) -> Result<bool> {
+    verify_with(request, candidate, ollama_chat)
+}
+
+fn verify_with(
+    request: &str,
+    candidate: &str,
+    chat: impl FnOnce(&str, &Value) -> Result<Vec<u8>>,
+) -> Result<bool> {
     let request = format!("Request: {request}\nCandidate: {candidate}");
     let mut payload = chat_payload(VERIFIER_MODEL, VERIFIER_PROMPT, &request, &["a", "b"]);
     payload["logprobs"] = json!(true);
     payload["top_logprobs"] = json!(20);
-    let response: VerifierResponse =
-        serde_json::from_slice(&ollama_chat(VERIFIER_MODEL, &payload)?)
-            .map_err(|_| "Ollama returned an invalid verifier response")?;
+    let response: VerifierResponse = serde_json::from_slice(&chat(VERIFIER_MODEL, &payload)?)
+        .map_err(|_| "Ollama returned an invalid verifier response")?;
     if response.model != VERIFIER_MODEL || !response.done {
         return Err("Ollama did not complete the requested verifier model call".into());
     }
@@ -206,4 +213,108 @@ const CHOICES: &[&str] = &["node_version", "disk_free", "unsupported"];
 
 pub(super) fn route(request: &str) -> Result<String> {
     chat(DEFAULT_MODEL, ROUTING_PROMPT, request, CHOICES)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn verifier_reply(accept: f64, decline: Option<f64>) -> Value {
+        let mut scores = vec![json!({"bytes": [b'a'], "logprob": accept})];
+        if let Some(decline) = decline {
+            scores.push(json!({"bytes": [b'b'], "logprob": decline}));
+        }
+        json!({
+            "model": VERIFIER_MODEL,
+            "message": {"content": r#"{"action":"a"}"#},
+            "done": true,
+            "logprobs": [
+                {"bytes": b"{\"action\":\"", "logprob": 0},
+                {"bytes": [b'a'], "logprob": accept, "top_logprobs": scores},
+                {"bytes": b"\"}", "logprob": 0},
+            ],
+        })
+    }
+
+    #[test]
+    fn chat_payload_uses_structured_json_and_requests_decision_scores() -> Result<()> {
+        assert!(verify_with(
+            "How much space?",
+            "Read disk space.",
+            |model, payload| {
+                assert_eq!(model, VERIFIER_MODEL);
+                assert_eq!(
+                    *payload,
+                    json!({
+                        "model": VERIFIER_MODEL,
+                        "stream": false,
+                        "think": false,
+                        "options": {"temperature": 0, "num_ctx": 2048, "num_predict": 32},
+                        "messages": [
+                            {"role": "system", "content": VERIFIER_PROMPT},
+                            {"role": "user", "content": "Request: How much space?\nCandidate: Read disk space."},
+                        ],
+                        "format": {
+                            "type": "object",
+                            "properties": {"action": {"enum": ["a", "b"]}},
+                            "required": ["action"],
+                            "additionalProperties": false,
+                        },
+                        "logprobs": true,
+                        "top_logprobs": 20,
+                    })
+                );
+                Ok(serde_json::to_vec(&verifier_reply(0.0, Some(-3.0)))?)
+            }
+        )?);
+        let router = chat_payload(DEFAULT_MODEL, ROUTING_PROMPT, "Read disk space.", CHOICES);
+        assert_eq!(
+            router["format"]["properties"]["action"]["enum"],
+            json!(CHOICES)
+        );
+        assert!(router.get("logprobs").is_none());
+        Ok(())
+    }
+
+    #[test]
+    fn decision_offset_requires_one_literal_action() {
+        for (content, token) in [
+            (r#"{"action":"a"}"#, b'a'),
+            (" \t{ \"action\" : \"b\" }\n", b'b'),
+        ] {
+            let offset = decision_offset(content).unwrap();
+            assert_eq!(content.as_bytes()[offset], token);
+        }
+        for content in [
+            r#"{"action":"ab"}"#,
+            r#"{"action":"é"}"#,
+            r#"{"action":"\u0061"}"#,
+            r#"{"action":"a","other":0}"#,
+            r#"{"action":"a"} extra"#,
+        ] {
+            assert_eq!(decision_offset(content), None, "{content}");
+        }
+    }
+
+    #[test]
+    fn verifier_uses_inclusive_cutoff_and_rejects_invalid_scores() -> Result<()> {
+        const CUTOFF: f64 = 2.2131806164979935;
+        let score = |accept, decline| {
+            verify_with("request", "candidate", |_, _| {
+                Ok(serde_json::to_vec(&verifier_reply(accept, decline))?)
+            })
+        };
+        assert!(score(0.0, Some(-3.0))?);
+        assert!(!score(0.0, Some(-2.0))?);
+        assert!(score(0.0, Some(-CUTOFF))?);
+        assert_eq!(
+            score(0.0, None).unwrap_err().to_string(),
+            "Ollama verifier did not return both decision scores"
+        );
+        assert_eq!(
+            score(f64::MAX, Some(-f64::MAX)).unwrap_err().to_string(),
+            "Ollama returned an invalid verifier margin"
+        );
+        Ok(())
+    }
 }
