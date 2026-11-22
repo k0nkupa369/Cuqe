@@ -1,0 +1,713 @@
+{
+  "archives_sha256": {
+    "benchmark.json": "3d26f1d5610143a2a1e0a43c5acd6c32367b6daf961893bf9122106826d0b20d"
+  },
+  "chip": "Apple M4",
+  "ollama": "0.40.15",
+  "model_manifest_sha256": {
+    "qwen3:0.6b": "7df6b6e09427a769808717c0a93cadc4ae99ed4eb8bf5ca557c90846becea435",
+    "cue-catalog:step-21432": "e33a37048b7e75867bee674cd9631aeea8e09a0c6fc1631153657738393f0ada"
+  },
+  "catalog_sha256": "60f7e46076fb3f1936ec8e82838cc73e23c27229113852b52f506c65f5e8e788",
+  "threshold_sha256": "b413bd284a07a44c4b6ce7c5c909e668fe79c2781dc7ac64ecb59486b7c2e2e4",
+  "samples": [
+    {
+      "pair": "v21-heldout-01",
+      "present": true,
+      "elapsed_ms": 148.61,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-02",
+      "present": false,
+      "elapsed_ms": 181.157,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-04",
+      "present": true,
+      "elapsed_ms": 185.379,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-05",
+      "present": false,
+      "elapsed_ms": 194.109,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-07",
+      "present": true,
+      "elapsed_ms": 191.138,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-08",
+      "present": false,
+      "elapsed_ms": 192.628,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-10",
+      "present": true,
+      "elapsed_ms": 186.339,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-11",
+      "present": false,
+      "elapsed_ms": 193.897,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-13",
+      "present": true,
+      "elapsed_ms": 192.257,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-14",
+      "present": false,
+      "elapsed_ms": 195.246,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-16",
+      "present": true,
+      "elapsed_ms": 229.292,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-17",
+      "present": false,
+      "elapsed_ms": 195.425,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-19",
+      "present": true,
+      "elapsed_ms": 192.395,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-20",
+      "present": false,
+      "elapsed_ms": 193.909,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-22",
+      "present": true,
+      "elapsed_ms": 204.481,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-23",
+      "present": false,
+      "elapsed_ms": 193.894,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-25",
+      "present": true,
+      "elapsed_ms": 188.826,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-26",
+      "present": false,
+      "elapsed_ms": 177.016,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-28",
+      "present": true,
+      "elapsed_ms": 175.059,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-29",
+      "present": false,
+      "elapsed_ms": 192.974,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-31",
+      "present": true,
+      "elapsed_ms": 181.67,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-32",
+      "present": false,
+      "elapsed_ms": 194.164,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-34",
+      "present": true,
+      "elapsed_ms": 164.625,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-35",
+      "present": false,
+      "elapsed_ms": 194.417,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-37",
+      "present": true,
+      "elapsed_ms": 220.911,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-38",
+      "present": false,
+      "elapsed_ms": 183.845,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-40",
+      "present": true,
+      "elapsed_ms": 185.823,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-41",
+      "present": false,
+      "elapsed_ms": 196.115,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-43",
+      "present": true,
+      "elapsed_ms": 186.075,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-44",
+      "present": false,
+      "elapsed_ms": 195.762,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-46",
+      "present": true,
+      "elapsed_ms": 184.089,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-47",
+      "present": false,
+      "elapsed_ms": 190.494,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-01",
+      "present": false,
+      "elapsed_ms": 192.608,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-03",
+      "present": true,
+      "elapsed_ms": 258.854,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-04",
+      "present": false,
+      "elapsed_ms": 260.922,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-06",
+      "present": true,
+      "elapsed_ms": 233.853,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-07",
+      "present": false,
+      "elapsed_ms": 222.706,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-09",
+      "present": true,
+      "elapsed_ms": 204.644,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-10",
+      "present": false,
+      "elapsed_ms": 203.244,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-12",
+      "present": true,
+      "elapsed_ms": 239.963,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-13",
+      "present": false,
+      "elapsed_ms": 211.282,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-15",
+      "present": true,
+      "elapsed_ms": 182.002,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-16",
+      "present": false,
+      "elapsed_ms": 199.474,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-18",
+      "present": true,
+      "elapsed_ms": 229.619,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-19",
+      "present": false,
+      "elapsed_ms": 226.023,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-21",
+      "present": true,
+      "elapsed_ms": 230.807,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-22",
+      "present": false,
+      "elapsed_ms": 248.225,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-24",
+      "present": true,
+      "elapsed_ms": 237.841,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-25",
+      "present": false,
+      "elapsed_ms": 220.938,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-27",
+      "present": true,
+      "elapsed_ms": 180.099,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-28",
+      "present": false,
+      "elapsed_ms": 184.047,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-30",
+      "present": true,
+      "elapsed_ms": 189.928,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-31",
+      "present": false,
+      "elapsed_ms": 188.082,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-33",
+      "present": true,
+      "elapsed_ms": 167.599,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-34",
+      "present": false,
+      "elapsed_ms": 169.204,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-36",
+      "present": true,
+      "elapsed_ms": 191.538,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-37",
+      "present": false,
+      "elapsed_ms": 208.405,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-39",
+      "present": true,
+      "elapsed_ms": 195.513,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-40",
+      "present": false,
+      "elapsed_ms": 195.675,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-42",
+      "present": true,
+      "elapsed_ms": 189.67,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-43",
+      "present": false,
+      "elapsed_ms": 180.264,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-45",
+      "present": true,
+      "elapsed_ms": 188.336,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-46",
+      "present": false,
+      "elapsed_ms": 190.033,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-48",
+      "present": true,
+      "elapsed_ms": 181.798,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-02",
+      "present": true,
+      "elapsed_ms": 158.65,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-03",
+      "present": false,
+      "elapsed_ms": 251.202,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-05",
+      "present": true,
+      "elapsed_ms": 301.334,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-06",
+      "present": false,
+      "elapsed_ms": 300.832,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-08",
+      "present": true,
+      "elapsed_ms": 278.048,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-09",
+      "present": false,
+      "elapsed_ms": 306.166,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-11",
+      "present": true,
+      "elapsed_ms": 216.956,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-12",
+      "present": false,
+      "elapsed_ms": 242.733,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-14",
+      "present": true,
+      "elapsed_ms": 233.151,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-15",
+      "present": false,
+      "elapsed_ms": 245.561,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-17",
+      "present": true,
+      "elapsed_ms": 242.134,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-18",
+      "present": false,
+      "elapsed_ms": 287.417,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-20",
+      "present": true,
+      "elapsed_ms": 260.892,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-21",
+      "present": false,
+      "elapsed_ms": 269.609,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-23",
+      "present": true,
+      "elapsed_ms": 235.868,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-24",
+      "present": false,
+      "elapsed_ms": 220.569,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-26",
+      "present": true,
+      "elapsed_ms": 223.62,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-27",
+      "present": false,
+      "elapsed_ms": 242.138,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-29",
+      "present": true,
+      "elapsed_ms": 340.91,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-30",
+      "present": false,
+      "elapsed_ms": 286.052,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-32",
+      "present": true,
+      "elapsed_ms": 347.511,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-33",
+      "present": false,
+      "elapsed_ms": 235.993,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-35",
+      "present": true,
+      "elapsed_ms": 309.655,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-36",
+      "present": false,
+      "elapsed_ms": 486.129,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-38",
+      "present": true,
+      "elapsed_ms": 366.102,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-39",
+      "present": false,
+      "elapsed_ms": 365.43,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-41",
+      "present": true,
+      "elapsed_ms": 375.38,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-42",
+      "present": false,
+      "elapsed_ms": 353.485,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-44",
+      "present": true,
+      "elapsed_ms": 370.35,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-45",
+      "present": false,
+      "elapsed_ms": 360.629,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-47",
+      "present": true,
+      "elapsed_ms": 334.801,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    },
+    {
+      "pair": "v21-heldout-48",
+      "present": false,
+      "elapsed_ms": 324.359,
+      "ranking_agreement": true,
+      "decision_agreement": true
+    }
+  ],
+  "resident_size_bytes": [
+    [
+      580669931,
+      580669931
+    ],
+    [
+      580669931,
+      580669931
+    ],
+    [
+      580669931,
+      580669931
+    ],
+    [
+      580669931,
+      580669931
+    ],
+    [
+      580669931,
+      580669931
+    ],
+    [
+      580669931,
+      580669931
+    ]
+  ]
+}

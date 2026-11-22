@@ -7,13 +7,31 @@
 
 ## Intended use
 
-Score one proposed action against one English request using a local Ollama server. The archived two-stage evaluation first used stock Qwen3 0.6B to rank a catalog, then used this checkpoint to keep or decline the proposal. The example in this repository takes a proposal directly.
+Score one proposed action against one English request using a local Ollama server. The archived two-stage evaluation first used stock Qwen3 0.6B to rank a catalog, then used this checkpoint to keep or decline the proposal. The Python simulator in this repository takes a proposal directly.
 
 ## Development evidence
 
-On the original simulated 48-request M4 development split, the two-stage pipeline kept the correct action on 39 of 48 offered presentations, declined 44 of 48 absent presentations, and kept the intended behavior on both presentations for 35 of 48 requests. Separate calibration kept 38 of 42 correctly ranked actions. A separate replay stopped 22 of 25 archived wrong stock proposals. The archived M4 p95 was 365 ms across 96 warm presentations, including stock ranking and verification. Ollama reported about 1.08 GiB resident for both models. These figures are development measurements from Ollama 0.40.15. Native v21 execution and loaded M1 performance were outside that evaluation.
+These are simulated development measurements from an Apple M4 running Ollama 0.40.15. The development split presented each request twice, with the correct action offered and absent. Calibration and wrong-proposal replay used separate sets. The latency run measured the stock router and v21 verifier together.
 
-The model can accept a similar action when the requested action is unavailable. In a release smoke check using Ollama 0.40.16, it accepted “Minimize the focused window” for the request “Close this window.” Keep this beta in simulation. Any app that executes actions needs its own authorization, input validation, and confirmation checks.
+| v21 development measure | Result |
+| --- | ---: |
+| Correct action offered and kept | 39/48 |
+| Correct action absent and declined | 44/48 |
+| Both presentations correct | 35/48 |
+| Correct stock proposals kept in calibration | 38/42 |
+| Archived wrong proposals declined | 22/25 |
+| Warm p95, ranking and verification | 365 ms over 96 presentations |
+| Peak Ollama-reported resident size, both models | 1.08 GiB |
+
+Run `python3 eval/report.py` to regenerate the table from the [archived observations](eval/README.md). This evaluation covered simulated actions. It did not measure native execution or loaded M1 performance.
+
+The model can accept a similar action when the requested action is unavailable. In a release smoke check using Ollama 0.40.16, it accepted “Minimize the focused window” for “Close this window.” With the [v21 model installed](README.md#optional-free-form-verification), try the same pair in the simulator.
+
+```sh
+python3 verify.py 'Close this window.' 'Minimize the focused window'
+```
+
+The simulator scores the proposal and prints the decision and margin. Cuqe's CLI only runs the two [built-in reads](README.md#read-disk-space-and-nodejs).
 
 ## Data credits
 

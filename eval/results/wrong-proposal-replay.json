@@ -1,0 +1,164 @@
+{
+  "archives_sha256": {
+    "stress.json": "d3f1a75926c5121a24109ba62863f1f0af77c09d358adf9743fd94011b607ce0",
+    "stress-cases.json": "6375caa46489037e53304b85c116f1d28e83727cb11916002e22e3d9311a6162"
+  },
+  "chip": "Apple M4",
+  "ollama": "0.40.15",
+  "model_manifest_sha256": {
+    "qwen3:0.6b": "7df6b6e09427a769808717c0a93cadc4ae99ed4eb8bf5ca557c90846becea435",
+    "cue-catalog:step-21432": "e33a37048b7e75867bee674cd9631aeea8e09a0c6fc1631153657738393f0ada"
+  },
+  "cases": [
+    {
+      "id": "v16-heldout-05",
+      "expected": "erase_terminal_scrollback",
+      "chosen": "cancel_active_download",
+      "margin": 3.00129309669137
+    },
+    {
+      "id": "v16-heldout-12",
+      "expected": "format_cells_as_currency",
+      "chosen": "highlight_selected_reading_text",
+      "margin": 1.0195808112621307
+    },
+    {
+      "id": "v16-heldout-13",
+      "expected": "expand_selected_archive_here",
+      "chosen": "save_new_search_filter",
+      "margin": -1.8491802513599396
+    },
+    {
+      "id": "v16-heldout-14",
+      "expected": "expand_selected_archive_here",
+      "chosen": "save_new_search_filter",
+      "margin": 2.8801116086542606
+    },
+    {
+      "id": "v16-heldout-15",
+      "expected": "expand_selected_archive_here",
+      "chosen": "save_new_search_filter",
+      "margin": -1.6708221584558487
+    },
+    {
+      "id": "v16-heldout-18",
+      "expected": "make_archive_of_selection",
+      "chosen": "replace_saved_search_filter",
+      "margin": -1.3458291590213776
+    },
+    {
+      "id": "v16-heldout-32",
+      "expected": "highlight_selected_reading_text",
+      "chosen": "save_new_search_filter",
+      "margin": 1.9827594012022018
+    },
+    {
+      "id": "v16-heldout-35",
+      "expected": "save_reader_location",
+      "chosen": "cancel_active_download",
+      "margin": -0.854303240776062
+    },
+    {
+      "id": "v16-heldout-36",
+      "expected": "save_reader_location",
+      "chosen": "paste_clipboard_with_style",
+      "margin": 1.3576183468103409
+    },
+    {
+      "id": "v16-heldout-40",
+      "expected": "extend_secondary_display",
+      "chosen": "expand_selected_archive_here",
+      "margin": -0.9589386880397797
+    },
+    {
+      "id": "v16-heldout-41",
+      "expected": "extend_secondary_display",
+      "chosen": "make_archive_of_selection",
+      "margin": 0.4886283576488495
+    },
+    {
+      "id": "v16-heldout-47",
+      "expected": "sort_files_by_file_name",
+      "chosen": "save_new_search_filter",
+      "margin": -2.5437012165784836
+    },
+    {
+      "id": "v17-heldout-07",
+      "expected": "search_current_document_text",
+      "chosen": "find_current_document_spelling",
+      "margin": 4.523689411580563
+    },
+    {
+      "id": "v17-heldout-12",
+      "expected": "search_all_workspace_documents",
+      "chosen": "find_current_document_spelling",
+      "margin": 2.1132583916187286
+    },
+    {
+      "id": "v17-heldout-21",
+      "expected": "crop_selected_image",
+      "chosen": "erase_terminal_scrollback",
+      "margin": 0.20003509521484375
+    },
+    {
+      "id": "v17-heldout-26",
+      "expected": "add_color_to_active_palette",
+      "chosen": "make_archive_of_selection",
+      "margin": -1.8859367370605469
+    },
+    {
+      "id": "v17-heldout-42",
+      "expected": "keep_contacts_split",
+      "chosen": "mirror_secondary_display",
+      "margin": -2.6000500097870827
+    },
+    {
+      "id": "v17-heldout-44",
+      "expected": "reveal_saved_password_in_view",
+      "chosen": "decline_entire_calendar_series",
+      "margin": -1.2393836677074432
+    },
+    {
+      "id": "v18-heldout-06",
+      "expected": "trash_selected_mail_thread",
+      "chosen": "set_default_download_folder",
+      "margin": 0.15943336486816406
+    },
+    {
+      "id": "v19-heldout-07",
+      "expected": "center_image_on_page",
+      "chosen": "increase_reader_text_size",
+      "margin": -2.5582311898469925
+    },
+    {
+      "id": "v19-heldout-08",
+      "expected": "center_image_on_page",
+      "chosen": "reflect_canvas_vertically",
+      "margin": -1.2315139472484589
+    },
+    {
+      "id": "v19-heldout-31",
+      "expected": "trim_clip_start",
+      "chosen": "increase_current_page_zoom",
+      "margin": -3.2088698856532574
+    },
+    {
+      "id": "v19-heldout-33",
+      "expected": "trim_clip_start",
+      "chosen": "increase_reader_text_size",
+      "margin": -1.8407783955335617
+    },
+    {
+      "id": "v19-heldout-41",
+      "expected": "show_current_output_level",
+      "chosen": "increase_reader_text_size",
+      "margin": -0.8316155076026917
+    },
+    {
+      "id": "v19-heldout-48",
+      "expected": "reflect_canvas_vertically",
+      "chosen": "center_image_in_column",
+      "margin": 0.022731781005859375
+    }
+  ]
+}

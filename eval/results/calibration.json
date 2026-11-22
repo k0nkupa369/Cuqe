@@ -1,0 +1,688 @@
+{
+  "archives_sha256": {
+    "calibration.json": "7c6c68716995c151dfd98f0eae2f287bcbb330b7c295fd79e35e649350675f4a",
+    "thresholds.json": "b413bd284a07a44c4b6ce7c5c909e668fe79c2781dc7ac64ecb59486b7c2e2e4"
+  },
+  "chip": "Apple M4",
+  "ollama": "0.40.15",
+  "model_manifest_sha256": {
+    "qwen3:0.6b": "7df6b6e09427a769808717c0a93cadc4ae99ed4eb8bf5ca557c90846becea435",
+    "cue-catalog:step-21432": "e33a37048b7e75867bee674cd9631aeea8e09a0c6fc1631153657738393f0ada"
+  },
+  "catalog_sha256": "a820508fb2b30a7026b39f58523cdd8e82fbbda563d22ea0b993d94ee0d1d5e4",
+  "cases": [
+    {
+      "pair": "v21-calibration-01",
+      "present": true,
+      "expected": "move_shape_to_front",
+      "ranking": "move_shape_to_front",
+      "ranked_margin": 6.793514160905033
+    },
+    {
+      "pair": "v21-calibration-01",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_shape_to_back",
+      "ranked_margin": -0.504306823015213
+    },
+    {
+      "pair": "v21-calibration-02",
+      "present": true,
+      "expected": "move_shape_to_front",
+      "ranking": "distribute_shapes_horizontally",
+      "ranked_margin": -2.8840369321405888
+    },
+    {
+      "pair": "v21-calibration-02",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "distribute_shapes_horizontally",
+      "ranked_margin": -2.8840369321405888
+    },
+    {
+      "pair": "v21-calibration-03",
+      "present": true,
+      "expected": "move_shape_to_front",
+      "ranking": "move_shape_to_front",
+      "ranked_margin": 4.1359482780098915
+    },
+    {
+      "pair": "v21-calibration-03",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_queued_file_earlier",
+      "ranked_margin": 3.6013299245387316
+    },
+    {
+      "pair": "v21-calibration-04",
+      "present": true,
+      "expected": "move_shape_to_back",
+      "ranking": "move_shape_to_back",
+      "ranked_margin": 5.89283383009024
+    },
+    {
+      "pair": "v21-calibration-04",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_shape_to_front",
+      "ranked_margin": -0.43060314655303955
+    },
+    {
+      "pair": "v21-calibration-05",
+      "present": true,
+      "expected": "move_shape_to_back",
+      "ranking": "move_shape_to_back",
+      "ranked_margin": 2.068425975739956
+    },
+    {
+      "pair": "v21-calibration-05",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_shape_to_front",
+      "ranked_margin": -2.165767550468445
+    },
+    {
+      "pair": "v21-calibration-06",
+      "present": true,
+      "expected": "move_shape_to_back",
+      "ranking": "decrease_bullet_indent",
+      "ranked_margin": -0.31936824321746826
+    },
+    {
+      "pair": "v21-calibration-06",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "decrease_bullet_indent",
+      "ranked_margin": -0.31936824321746826
+    },
+    {
+      "pair": "v21-calibration-07",
+      "present": true,
+      "expected": "increase_bullet_indent",
+      "ranking": "increase_bullet_indent",
+      "ranked_margin": 4.386907462030649
+    },
+    {
+      "pair": "v21-calibration-07",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "decrease_bullet_indent",
+      "ranked_margin": 5.0200559287332
+    },
+    {
+      "pair": "v21-calibration-08",
+      "present": true,
+      "expected": "increase_bullet_indent",
+      "ranking": "jump_to_first_workbook_sheet",
+      "ranked_margin": 0.6468600332736969
+    },
+    {
+      "pair": "v21-calibration-08",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "add_blank_meeting_notes",
+      "ranked_margin": -0.9668579399585724
+    },
+    {
+      "pair": "v21-calibration-09",
+      "present": true,
+      "expected": "increase_bullet_indent",
+      "ranking": "increase_bullet_indent",
+      "ranked_margin": 1.7555294334888458
+    },
+    {
+      "pair": "v21-calibration-09",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "decrease_bullet_indent",
+      "ranked_margin": 5.332797861658037
+    },
+    {
+      "pair": "v21-calibration-10",
+      "present": true,
+      "expected": "decrease_bullet_indent",
+      "ranking": "decrease_bullet_indent",
+      "ranked_margin": 3.774154545739293
+    },
+    {
+      "pair": "v21-calibration-10",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "increase_bullet_indent",
+      "ranked_margin": 0.6509876847267151
+    },
+    {
+      "pair": "v21-calibration-11",
+      "present": true,
+      "expected": "decrease_bullet_indent",
+      "ranking": "decrease_bullet_indent",
+      "ranked_margin": 5.706541126128286
+    },
+    {
+      "pair": "v21-calibration-11",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "increase_bullet_indent",
+      "ranked_margin": 3.48418808914721
+    },
+    {
+      "pair": "v21-calibration-12",
+      "present": true,
+      "expected": "decrease_bullet_indent",
+      "ranking": "decrease_bullet_indent",
+      "ranked_margin": 4.257969159632921
+    },
+    {
+      "pair": "v21-calibration-12",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "increase_bullet_indent",
+      "ranked_margin": 3.5536460541188717
+    },
+    {
+      "pair": "v21-calibration-13",
+      "present": true,
+      "expected": "copy_picture_original",
+      "ranking": "copy_picture_original",
+      "ranked_margin": 6.561538630514406
+    },
+    {
+      "pair": "v21-calibration-13",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "copy_picture_with_edits",
+      "ranked_margin": 4.095321502536535
+    },
+    {
+      "pair": "v21-calibration-14",
+      "present": true,
+      "expected": "copy_picture_original",
+      "ranking": "copy_picture_original",
+      "ranked_margin": -0.9137249290943146
+    },
+    {
+      "pair": "v21-calibration-14",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "copy_picture_with_edits",
+      "ranked_margin": -2.3184413835406303
+    },
+    {
+      "pair": "v21-calibration-15",
+      "present": true,
+      "expected": "copy_picture_original",
+      "ranking": "copy_picture_original",
+      "ranked_margin": 8.422454522689804
+    },
+    {
+      "pair": "v21-calibration-15",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "copy_picture_with_edits",
+      "ranked_margin": 5.39248298574239
+    },
+    {
+      "pair": "v21-calibration-16",
+      "present": true,
+      "expected": "copy_picture_with_edits",
+      "ranking": "copy_picture_with_edits",
+      "ranked_margin": 6.952938014641404
+    },
+    {
+      "pair": "v21-calibration-16",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "copy_picture_original",
+      "ranked_margin": 3.9547366686165333
+    },
+    {
+      "pair": "v21-calibration-17",
+      "present": true,
+      "expected": "copy_picture_with_edits",
+      "ranking": "copy_picture_with_edits",
+      "ranked_margin": 2.2131806164979935
+    },
+    {
+      "pair": "v21-calibration-17",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "save_current_draft",
+      "ranked_margin": -3.7877463698387146
+    },
+    {
+      "pair": "v21-calibration-18",
+      "present": true,
+      "expected": "copy_picture_with_edits",
+      "ranking": "copy_picture_with_edits",
+      "ranked_margin": 8.269256561761722
+    },
+    {
+      "pair": "v21-calibration-18",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "copy_picture_original",
+      "ranked_margin": 5.071838346775621
+    },
+    {
+      "pair": "v21-calibration-19",
+      "present": true,
+      "expected": "show_available_microphones",
+      "ranking": "show_available_microphones",
+      "ranked_margin": 3.5217266641557217
+    },
+    {
+      "pair": "v21-calibration-19",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_selected_microphone",
+      "ranked_margin": -0.9519481062889099
+    },
+    {
+      "pair": "v21-calibration-20",
+      "present": true,
+      "expected": "show_available_microphones",
+      "ranking": "show_available_microphones",
+      "ranked_margin": 8.301284922898049
+    },
+    {
+      "pair": "v21-calibration-20",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_selected_microphone",
+      "ranked_margin": -2.523351736366749
+    },
+    {
+      "pair": "v21-calibration-21",
+      "present": true,
+      "expected": "show_available_microphones",
+      "ranking": "show_available_microphones",
+      "ranked_margin": 5.921501201344654
+    },
+    {
+      "pair": "v21-calibration-21",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_selected_microphone",
+      "ranked_margin": 0.21113967895507812
+    },
+    {
+      "pair": "v21-calibration-22",
+      "present": true,
+      "expected": "show_selected_microphone",
+      "ranking": "show_selected_microphone",
+      "ranked_margin": 7.011663620127365
+    },
+    {
+      "pair": "v21-calibration-22",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_available_microphones",
+      "ranked_margin": 4.126033550128341
+    },
+    {
+      "pair": "v21-calibration-23",
+      "present": true,
+      "expected": "show_selected_microphone",
+      "ranking": "show_selected_microphone",
+      "ranked_margin": 6.89349749032408
+    },
+    {
+      "pair": "v21-calibration-23",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_available_microphones",
+      "ranked_margin": 4.360847670584917
+    },
+    {
+      "pair": "v21-calibration-24",
+      "present": true,
+      "expected": "show_selected_microphone",
+      "ranking": "show_selected_microphone",
+      "ranked_margin": 1.7828063666820526
+    },
+    {
+      "pair": "v21-calibration-24",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "show_available_microphones",
+      "ranked_margin": 2.258844278752804
+    },
+    {
+      "pair": "v21-calibration-25",
+      "present": true,
+      "expected": "move_queued_file_earlier",
+      "ranking": "move_queued_file_earlier",
+      "ranked_margin": 8.177572368702386
+    },
+    {
+      "pair": "v21-calibration-25",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_queued_file_later",
+      "ranked_margin": 3.9350165463984013
+    },
+    {
+      "pair": "v21-calibration-26",
+      "present": true,
+      "expected": "move_queued_file_earlier",
+      "ranking": "decrease_bullet_indent",
+      "ranked_margin": 3.8408279791474342
+    },
+    {
+      "pair": "v21-calibration-26",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "decrease_bullet_indent",
+      "ranked_margin": 3.8408279791474342
+    },
+    {
+      "pair": "v21-calibration-27",
+      "present": true,
+      "expected": "move_queued_file_earlier",
+      "ranking": "speed_up_current_playback",
+      "ranked_margin": 1.463842362165451
+    },
+    {
+      "pair": "v21-calibration-27",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "speed_up_current_playback",
+      "ranked_margin": 1.463842362165451
+    },
+    {
+      "pair": "v21-calibration-28",
+      "present": true,
+      "expected": "move_queued_file_later",
+      "ranking": "move_queued_file_later",
+      "ranked_margin": 7.628497828904074
+    },
+    {
+      "pair": "v21-calibration-28",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_queued_file_earlier",
+      "ranked_margin": 6.483732295921072
+    },
+    {
+      "pair": "v21-calibration-29",
+      "present": true,
+      "expected": "move_queued_file_later",
+      "ranking": "move_queued_file_later",
+      "ranked_margin": 5.593597498722374
+    },
+    {
+      "pair": "v21-calibration-29",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_queued_file_earlier",
+      "ranked_margin": 6.3148192637600005
+    },
+    {
+      "pair": "v21-calibration-30",
+      "present": true,
+      "expected": "move_queued_file_later",
+      "ranking": "move_queued_file_later",
+      "ranked_margin": 5.909502211725339
+    },
+    {
+      "pair": "v21-calibration-30",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "move_queued_file_earlier",
+      "ranked_margin": 4.6906511671841145
+    },
+    {
+      "pair": "v21-calibration-31",
+      "present": true,
+      "expected": "open_meeting_notes_file",
+      "ranking": "open_meeting_notes_file",
+      "ranked_margin": 6.902750105247833
+    },
+    {
+      "pair": "v21-calibration-31",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "save_current_draft",
+      "ranked_margin": -0.3110694885253906
+    },
+    {
+      "pair": "v21-calibration-32",
+      "present": true,
+      "expected": "open_meeting_notes_file",
+      "ranking": "open_meeting_notes_file",
+      "ranked_margin": 4.7030601017177105
+    },
+    {
+      "pair": "v21-calibration-32",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "add_blank_meeting_notes",
+      "ranked_margin": 0.5308647751808167
+    },
+    {
+      "pair": "v21-calibration-33",
+      "present": true,
+      "expected": "open_meeting_notes_file",
+      "ranking": "open_meeting_notes_file",
+      "ranked_margin": 7.508479836164042
+    },
+    {
+      "pair": "v21-calibration-33",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "jump_to_first_workbook_sheet",
+      "ranked_margin": 0.9532355964183807
+    },
+    {
+      "pair": "v21-calibration-34",
+      "present": true,
+      "expected": "add_blank_meeting_notes",
+      "ranking": "add_blank_meeting_notes",
+      "ranked_margin": 5.358207433018833
+    },
+    {
+      "pair": "v21-calibration-34",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "open_meeting_notes_file",
+      "ranked_margin": 2.765014633536339
+    },
+    {
+      "pair": "v21-calibration-35",
+      "present": true,
+      "expected": "add_blank_meeting_notes",
+      "ranking": "add_blank_meeting_notes",
+      "ranked_margin": 3.2107925936579704
+    },
+    {
+      "pair": "v21-calibration-35",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "copy_picture_original",
+      "ranked_margin": -3.0376701802015305
+    },
+    {
+      "pair": "v21-calibration-36",
+      "present": true,
+      "expected": "add_blank_meeting_notes",
+      "ranking": "save_current_draft",
+      "ranked_margin": -0.8434143662452698
+    },
+    {
+      "pair": "v21-calibration-36",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "save_current_draft",
+      "ranked_margin": -0.8434143662452698
+    },
+    {
+      "pair": "v21-calibration-37",
+      "present": true,
+      "expected": "change_chart_x_range",
+      "ranking": "change_chart_x_range",
+      "ranked_margin": 6.3833066136576235
+    },
+    {
+      "pair": "v21-calibration-37",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "change_chart_y_range",
+      "ranked_margin": -1.2584533393383026
+    },
+    {
+      "pair": "v21-calibration-38",
+      "present": true,
+      "expected": "change_chart_x_range",
+      "ranking": "change_chart_x_range",
+      "ranked_margin": 2.5832499638199806
+    },
+    {
+      "pair": "v21-calibration-38",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "change_chart_y_range",
+      "ranked_margin": -0.6017875075340271
+    },
+    {
+      "pair": "v21-calibration-39",
+      "present": true,
+      "expected": "change_chart_x_range",
+      "ranking": "change_chart_x_range",
+      "ranked_margin": 2.7794303745031357
+    },
+    {
+      "pair": "v21-calibration-39",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "change_chart_y_range",
+      "ranked_margin": 3.127300377935171
+    },
+    {
+      "pair": "v21-calibration-40",
+      "present": true,
+      "expected": "change_chart_y_range",
+      "ranking": "change_chart_y_range",
+      "ranked_margin": 6.260948153678328
+    },
+    {
+      "pair": "v21-calibration-40",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "change_chart_x_range",
+      "ranked_margin": -1.6096057295799255
+    },
+    {
+      "pair": "v21-calibration-41",
+      "present": true,
+      "expected": "change_chart_y_range",
+      "ranking": "change_chart_y_range",
+      "ranked_margin": 2.3359051197767258
+    },
+    {
+      "pair": "v21-calibration-41",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "change_chart_x_range",
+      "ranked_margin": 1.1154137551784515
+    },
+    {
+      "pair": "v21-calibration-42",
+      "present": true,
+      "expected": "change_chart_y_range",
+      "ranking": "change_chart_y_range",
+      "ranked_margin": 3.7850151136517525
+    },
+    {
+      "pair": "v21-calibration-42",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "change_chart_x_range",
+      "ranked_margin": 3.6718102134764194
+    },
+    {
+      "pair": "v21-calibration-43",
+      "present": true,
+      "expected": "slow_current_playback",
+      "ranking": "slow_current_playback",
+      "ranked_margin": 6.5294706638669595
+    },
+    {
+      "pair": "v21-calibration-43",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "speed_up_current_playback",
+      "ranked_margin": 2.3850593864917755
+    },
+    {
+      "pair": "v21-calibration-44",
+      "present": true,
+      "expected": "slow_current_playback",
+      "ranking": "slow_current_playback",
+      "ranked_margin": 7.181047335383482
+    },
+    {
+      "pair": "v21-calibration-44",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "speed_up_current_playback",
+      "ranked_margin": -2.3006783053278923
+    },
+    {
+      "pair": "v21-calibration-45",
+      "present": true,
+      "expected": "slow_current_playback",
+      "ranking": "slow_current_playback",
+      "ranked_margin": 6.906023228191771
+    },
+    {
+      "pair": "v21-calibration-45",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "speed_up_current_playback",
+      "ranked_margin": -1.236276626586914
+    },
+    {
+      "pair": "v21-calibration-46",
+      "present": true,
+      "expected": "speed_up_current_playback",
+      "ranking": "speed_up_current_playback",
+      "ranked_margin": 6.818937585223466
+    },
+    {
+      "pair": "v21-calibration-46",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "slow_current_playback",
+      "ranked_margin": 3.9155465085059404
+    },
+    {
+      "pair": "v21-calibration-47",
+      "present": true,
+      "expected": "speed_up_current_playback",
+      "ranking": "speed_up_current_playback",
+      "ranked_margin": 4.07486722804606
+    },
+    {
+      "pair": "v21-calibration-47",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "slow_current_playback",
+      "ranked_margin": 1.2416267693042755
+    },
+    {
+      "pair": "v21-calibration-48",
+      "present": true,
+      "expected": "speed_up_current_playback",
+      "ranking": "speed_up_current_playback",
+      "ranked_margin": 8.539247081556823
+    },
+    {
+      "pair": "v21-calibration-48",
+      "present": false,
+      "expected": "unsupported",
+      "ranking": "slow_current_playback",
+      "ranked_margin": 1.5859775245189667
+    }
+  ],
+  "cutoff": 2.2131806164979935
+}
