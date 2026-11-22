@@ -1,7 +1,7 @@
 use super::{Result, command_output};
 use serde::{Deserialize, Serialize};
 use std::env;
-use std::ffi::{CString, c_char, c_int};
+use std::ffi::{CString, OsString, c_char, c_int};
 use std::fs::{self, File, OpenOptions};
 use std::io::{self, Write};
 use std::os::unix::{ffi::OsStrExt, fs::OpenOptionsExt};
@@ -53,12 +53,15 @@ pub(super) fn is_local_version_request(request: &str) -> bool {
 }
 
 fn profile_path() -> Result<PathBuf> {
-    let dir = match env::var_os("CUQE_CONFIG_DIR") {
+    profile_path_from(env::var_os("CUQE_CONFIG_DIR"), env::var_os("HOME"))
+}
+
+fn profile_path_from(config_dir: Option<OsString>, home: Option<OsString>) -> Result<PathBuf> {
+    let dir = match config_dir {
         Some(path) if path.is_empty() => return Err("CUQE_CONFIG_DIR must name a directory".into()),
         Some(path) => PathBuf::from(path),
         None => PathBuf::from(
-            env::var_os("HOME")
-                .filter(|home| !home.is_empty())
+            home.filter(|home| !home.is_empty())
                 .ok_or("Set HOME or CUQE_CONFIG_DIR")?,
         )
         .join("Library/Application Support/Cuqe"),
@@ -149,8 +152,13 @@ pub(super) fn observe() -> Result<NodeObservation> {
 pub(super) fn onboard() -> Result<NodeObservation> {
     let path = profile_path()?;
     let observation = probe(discover()?, ResolutionScope::SavedProfile)?;
+    write_profile(&path, &observation.executable)?;
+    Ok(observation)
+}
+
+fn write_profile(path: &Path, executable: &Path) -> Result<()> {
     let bytes = serde_json::to_vec(&NodeProfile {
-        executable: observation.executable.clone(),
+        executable: executable.into(),
     })?;
 
     fs::create_dir_all(path.parent().ok_or("Invalid Node.js profile path")?)?;
@@ -167,10 +175,53 @@ pub(super) fn onboard() -> Result<NodeObservation> {
     let result = file
         .write_all(&bytes)
         .and_then(|()| file.sync_all())
-        .and_then(|()| fs::rename(&temp, &path));
+        .and_then(|()| fs::rename(&temp, path));
     if result.is_err() {
         let _ = fs::remove_file(temp);
     }
     result?;
-    Ok(observation)
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn identifies_local_node_version_requests() {
+        for request in ["What is my Node.js version?", "Installed NODEJS version?"] {
+            assert!(is_local_version_request(request), "{request}");
+        }
+        for request in [
+            "How do I check my node version?",
+            "What's the latest Node.js version?",
+            "Node version online?",
+            "What's my npm and node version?",
+            "Which Node.js is installed?",
+        ] {
+            assert!(!is_local_version_request(request), "{request}");
+        }
+    }
+
+    #[test]
+    fn round_trips_node_profile_in_config_override() -> Result<()> {
+        let nonce = SystemTime::now().duration_since(UNIX_EPOCH)?.as_nanos();
+        let dir = env::temp_dir().join(format!("cuqe-profile-{}-{nonce}", std::process::id()));
+        let path = profile_path_from(Some(dir.clone().into_os_string()), None)?;
+        assert_eq!(path, dir.join("node.json"));
+        assert!(read_profile(&path)?.is_none());
+
+        let first = Path::new("/example/first/bin/node");
+        let second = Path::new("/example/second/bin/node");
+        write_profile(&path, first)?;
+        let original = read_profile(&path);
+        write_profile(&path, second)?;
+        let replacement = read_profile(&path);
+        fs::remove_dir_all(&dir)?;
+
+        assert_eq!(original?.unwrap().executable, first);
+        assert_eq!(replacement?.unwrap().executable, second);
+        assert!(profile_path_from(Some(OsString::new()), None).is_err());
+        Ok(())
+    }
 }
