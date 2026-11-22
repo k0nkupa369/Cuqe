@@ -3,7 +3,7 @@
 - Checkpoint: v21, 432 updates, Q4_K_M GGUF, 522,640,096 bytes.
 - Base: [Qwen3 0.6B](https://huggingface.co/Qwen/Qwen3-0.6B), revision `c1899de289a04d12100db370d81485cdf75e47ca`.
 - Modifications: Cuqe fine-tuned a rank-eight LoRA adapter on 432 distinct requests presented twice, then exported the adapted weights into the Q4_K_M GGUF.
-- License: [Apache 2.0](LICENSE). The original license is included.
+- License: [Apache 2.0](LICENSE). The original license is included. See [training and export provenance](TRAINING.md).
 
 ## Intended use
 
