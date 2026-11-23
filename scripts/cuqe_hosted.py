@@ -116,7 +116,7 @@ def main() -> None:
             subprocess.run(["/usr/bin/security", "-q", "-i"], input=line.encode(), capture_output=True, check=True)
             if subprocess.check_output(keychain, text=True, stderr=subprocess.DEVNULL).strip() != token:
                 raise SystemExit("Could not store the Cuqe credential in Keychain.")
-            print("Paste this code into the private Cuqe Site within five minutes.\n" + code)
+            print("Paste this code into your private Cuqe pairing page within five minutes.\n" + code)
             return
         if not check_status():
             raise SystemExit("Pair this Mac before starting Cuqe.")

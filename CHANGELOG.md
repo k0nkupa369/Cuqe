@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.4-beta
+
+- Added reusable Sites Workers and deployment instructions for a private ChatGPT connection.
+- The pairing page shows the relay URL from your deployment and links to the matching release.
+- Put local CLI and Codex setup first in the README, with separate instructions for Tailscale and private ChatGPT.
+
 ## v0.3-beta
 
 - Added a private Tailscale MCP path for the startup disk read.
